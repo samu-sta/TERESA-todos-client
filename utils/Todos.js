@@ -183,7 +183,7 @@ export const isTodoAllCompleted = (todo) => {
 const DAYS_AFTER_DELETING = 7
 
 export const wouldBeDeleted = (todo, date) => {
-  const todoDate = new Date(todo.date.year, todo.date.month - 1, todo.date.day + DAYS_AFTER_DELETING)
+  let todoDate = new Date(todo.date.year, todo.date.month - 1, todo.date.day + DAYS_AFTER_DELETING)
 
   if (todo.date.frecuency){
     if (! todo.date.frecuency.end){
