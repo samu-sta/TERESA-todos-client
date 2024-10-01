@@ -92,6 +92,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
   height: auto;
   background-color: #efefef; /* Fondo amarillo pastel tirando a rosa claro */
   border: 1px solid #d147a3; /* Borde rosado oscuro */
