@@ -1,0 +1,83 @@
+.hidden {
+  display: none;
+}
+
+.overlay-date {
+  align-items: center;
+  transition: opacity 0.3s ease;
+
+}
+
+.date-modal {
+  padding: 7px;
+  background-color: #ffe4e1;
+  border-radius: 5px;
+  overflow-y: auto;
+  transform: scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  height: 50%;
+  max-height: 500px;
+  border: 2px solid #d147a3;
+  
+}
+.date-modal-section{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modal-arrow{
+  color: #d147a3;
+  
+}
+
+
+.visible>.date-modal {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  animation: fadeInScale 0.5s forwards;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeOutScale 0.3s forwards;
+}
+
+.date-modal-title{
+  font-weight: bold;
+}
+
+.date-modal-button {
+  font-size: 16px;
+  background-color: inherit;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.header-date-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5%;
+  gap: 20px;
+  padding: 15px 0px;
+}
+
+.header-date-modal>span {
+  font-size: 18px;
+}

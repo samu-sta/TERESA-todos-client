@@ -1,0 +1,18 @@
+
+.add-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    background-color: inherit;
+    background-color: #e837ad;
+    padding: 10px;
+    border-radius: 25px;
+}  

@@ -1,0 +1,28 @@
+.type-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    color: #d147a3;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    background-color: inherit;
+    font-weight: bold;
+}
+
+.type-article{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+

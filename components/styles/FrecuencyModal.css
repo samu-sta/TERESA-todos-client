@@ -1,0 +1,140 @@
+.modal-frecuency {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffe4e1;
+  animation : fadeInScale 0.2s ease-in-out;
+}
+
+.frecuency-modal-main{
+  height: 80%;
+}
+.header-modal-frecuency{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-modal-frecuency>span {
+  font-size: 20px;
+}
+
+.submit-frecuency-button {
+  color: #d147a3;
+}
+
+.cancel-frecuency-button {
+  color: #f44336;
+}
+
+.modal-frecuency-button {
+  font-size: 16px;
+  background-color: inherit;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+.frecuency-modal-section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.frecuency-modal-section>p {
+  font-size: 14px;
+}
+
+.input-frecuency-div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.frecuency-input {
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 16px;
+  border: 1px solid #d147a3;
+  color: #d147a3;
+  border-radius: 4px;
+  width: 5.3vh;
+}
+
+.frecuency-input:focus,
+.frecuency-select:focus {
+  outline: none;
+}
+
+
+.frecuency-select {
+  padding: 10px;
+
+  font-size: 16px;
+  border: 1px solid #5c6468;
+
+  border-radius: 4px;
+}
+
+.frecuency-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1.5px solid #d147a3;
+  color: #d147a3;
+  
+}
+
+
+.weekDay-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 25px;
+  background-color: #eee;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estado cuando está marcado */
+.weekDay-input:checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+/* Agregar un icono al checkbox marcado */
+.weekDay-input:checked::after {
+  content: '✔';
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Cambiar el color al pasar el ratón */
+.weekDay-input:hover {
+  border-color: #888;
+}
+
+.end-option{
+  display: flex;
+  gap: 10px;
+}
+
+.frecuency-modal-footer{
+  display: flex;
+  height: 15%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+

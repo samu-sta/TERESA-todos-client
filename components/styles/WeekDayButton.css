@@ -1,0 +1,35 @@
+.weekDay-list{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vh;
+    padding: 0px;
+    background-color: inherit;
+    list-style-type: none;
+
+}
+
+.weekDay-overlay{
+    width: auto; 
+    height: auto;
+}
+
+.weekDay-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.7vh;
+    height: 3.7vh;
+    padding: 8px;
+    border-radius: 999999099999px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: inherit;
+    border: 1px solid #5c6468;
+}
+
+.weekDay-checked{
+    background-color: #d147a3;
+    border: 1px solid #d147a3;
+    color: #fff;
+}

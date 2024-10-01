@@ -1,0 +1,40 @@
+.end-option-radio {
+    display: none;
+  }
+  
+  .end-option-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0px;
+  }
+  
+  .end-option-custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: border-color 0.5s ease;
+
+  }
+  
+  .end-option-radio:checked + .end-option-custom-radio::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #d147a3;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.5s ease;
+
+
+  }
+  
+  .end-option-radio:checked + .end-option-custom-radio {
+    border-color: #d147a3;
+  }

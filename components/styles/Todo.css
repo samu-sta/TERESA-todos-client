@@ -1,0 +1,134 @@
+/**CHECKBOX STYLES**/
+
+.todo-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #d147a3; /* Borde rosado oscuro */
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Estado cuando está marcado */
+.todo-checkbox:checked {
+    background-color: #d147a3; /* Fondo rosado */
+    border-color: #d147a3; /* Borde rosado oscuro */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .todo-checkbox:checked::after {
+    content: '✓';
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background-image: url('path/to/your/flower-image.png'); /* Imagen de flor */
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    border-color: #d147a3; /* Borde rosado oscuro */
+
+  }
+
+
+
+/**ARTICLE STYLES**/
+
+.todo-main {
+    display: flex;
+    justify-content: flex-start;
+    gap : 20px;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.todoArticle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap : 20px;
+    align-items: center;
+    width: 100%;
+    padding: 10px 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #222;
+    word-wrap: break-word; /* Permite que las palabras largas salten de línea */
+    word-break: break-all; /* Rompe las palabras largas si es necesario */
+}
+
+.todo {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.todoArticle:hover{
+    background-color: #f0f0f0;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+.todo-footer{
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    gap: 20px;
+    width: 30%;
+    font-size: 9px;
+}
+
+.todo-footer > p {
+    margin: 0;
+}
+
+.completed-footer{
+    text-decoration: none;
+    color: #888;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.fade-out {
+    animation: fadeOut .4s forwards;
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes growShrink {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
