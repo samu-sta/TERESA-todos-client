@@ -22,9 +22,8 @@
   gap: 3vh;
   align-items: center;
   width: 80%;
+  height: 400px;
   max-width: 400px;
-  height: 50%;
-  max-height: 500px;
   border: 2px solid #d147a3;
   
 }

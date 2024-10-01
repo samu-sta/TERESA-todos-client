@@ -76,6 +76,7 @@ body {
   box-shadow: 0 4px 8px rgba(209, 71, 163, 0.5); /* Sombra rosada */
   background-color: #ffe4e1;
   overflow: auto;
+  white-space: nowrap;
 }
 
 .today-title {
@@ -91,8 +92,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  max-width: 50vh;
+  height: auto;
   background-color: #efefef; /* Fondo amarillo pastel tirando a rosa claro */
   border: 1px solid #d147a3; /* Borde rosado oscuro */
   border-radius: 5px;
