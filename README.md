@@ -65,8 +65,8 @@ The built files will be in the `dist` folder.
 
 For deploying the app, upload the contents of the `dist` folder to your web server or static hosting provider (e.g., Netlify, Vercel).
 
-You can add a link to the live version of the application here:  
-[Live Demo](https://your-live-link.com)
+Here is a demo of the app on production:
+[Live Demo](https://e01ca255.teresa-todos.pages.dev/)
 
 ## Data Storage
 
