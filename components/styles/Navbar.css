@@ -1,0 +1,51 @@
+.navbar {
+    width: 100%;
+    background-color: #e837ad; /* Color de fondo rosado oscuro */
+    padding: 10px 0;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    gap: 8vh;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar-item {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.navbar-item-active .navbar-icon {
+    background-color: #cd2395; /* Color de fondo rosado */
+    color: #fff; /* Color del icono cuando está activo */
+}
+
+.navbar-icon {
+    font-size: 3rem;
+    color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.navbar-item p {
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin: 0;
+    color: #ddd;
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.navbar-item-active p {
+    color: #fff; /* Color del texto cuando está activo */
+}
+
