@@ -204,7 +204,7 @@ const FrecuencyModal = ({ toggleModalVisible, isVisible, currentFrecuency, setFr
             currentFrecuency ? setInputsFrecuency(firstFrecuency) : null
           }}
             className='modal-frecuency-button'><FaArrowLeft  className='modal-arrow'/></button>
-          <span>Frecuencia personalizada</span>
+          <h3 className='modal-frecuency-title'>Frecuencia personalizada</h3>
           <button
             className='submit-frecuency-button modal-frecuency-button'
             onClick={confirmFrecuency}

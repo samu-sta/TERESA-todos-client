@@ -47,7 +47,7 @@ function Home() {
               dateSelected={date}
               setDate={setDate}
             />
-        
+
         <section className='todos notebook'>
           <h2 className='today-section-h2'>{date.getDate()} {returnMonth(date)} • {returnWeekDay(date)}</h2>
 

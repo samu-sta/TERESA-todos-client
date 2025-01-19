@@ -17,6 +17,7 @@
     margin-right: 10px;
     position: relative;
     transition: border-color 0.5s ease;
+    color: #222;
 
   }
   
@@ -24,7 +25,7 @@
     content: '';
     width: 12px;
     height: 12px;
-    background-color: #d147a3;
+    background-color: #c67cae;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -36,5 +37,5 @@
   }
   
   .end-option-radio:checked + .end-option-custom-radio {
-    border-color: #d147a3;
+    border-color: #c67cae;
   }

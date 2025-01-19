@@ -36,7 +36,7 @@ const DateModal = ({ isVisible, onToggleVisible, currentFrecuency, setFrecuency,
             >
               <FaArrowLeft className='modal-arrow'/>
             </button>
-            <span className='date-modal-title'>Selecciona fecha</span>
+            <h3 className='date-modal-title'>Selecciona fecha</h3>
             <button
               className='submit-frecuency-button modal-frecuency-button'
               onClick={handleToggleVisible}
@@ -45,7 +45,7 @@ const DateModal = ({ isVisible, onToggleVisible, currentFrecuency, setFrecuency,
             </button>
           </header>
           <section className='date-modal-section'>
-            <span>Inicio</span>
+            <label className='start-date-label'>Inicio</label>
             <CustomDatePicker
               dateSelected={date}
               setDate={setDate}

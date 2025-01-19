@@ -54,7 +54,7 @@ function TypeModal({ onToggleVisible, isVisible, setCurrentType, types, setTypes
       >
         <article className='type-modal notebook'>
           <ul className='type-list'>
-            <li>
+            <li className='type-title'>
               <ManageTypes
                 types={types}
                 setTypes={setTypes}

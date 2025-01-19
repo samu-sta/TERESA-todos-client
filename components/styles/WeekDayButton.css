@@ -21,7 +21,7 @@
     height: 3.7vh;
     padding: 8px;
     border-radius: 999999099999px;
-    color: #000;
+    color: #5c6468;
     cursor: pointer;
     transition: background-color 0.3s ease;
     background-color: inherit;
@@ -29,7 +29,7 @@
 }
 
 .weekDay-checked{
-    background-color: #d147a3;
-    border: 1px solid #d147a3;
+    background-color: #c67cae;
+    border: 1px solid #c67cae;
     color: #fff;
 }

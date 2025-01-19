@@ -4,6 +4,10 @@
 
 }
 
+.type-title{
+    list-style: none;
+}
+
 .type-modal {
     display: flex;
     flex-direction: column;
@@ -15,7 +19,7 @@
     background-color: #e3e3e3;
     border-radius: 5px;
     overflow-y: auto;
-    border: 2px solid #d147a3;
+    border: 2px solid #c67cae;
     animation : fadeInScale 0.2s ease-in-out;
 }
 
@@ -53,6 +57,12 @@
     box-sizing: border-box;
 }
 
+.type-item span {
+    font-size: 16px;
+    color : #444;
+
+}
+
 .visible {
     opacity: 1;
     pointer-events: auto;
@@ -78,6 +88,7 @@
     width: 100%;
     font-size: 16px;
     font-weight: 500;
+    color: #444;
 }
 
 .submit-type{

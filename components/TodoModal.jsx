@@ -184,7 +184,7 @@ function TodoModal({ onToggleVisible, isVisible, setTodos, isNewTodo, todo,
 
           />
           <textarea
-            placeholder="Descripcion"
+            placeholder="Descripción"
             className="description notebook"
             value={inputDescriptionValue}
             onChange={handleInputDescriptionChange}

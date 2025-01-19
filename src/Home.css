@@ -34,7 +34,6 @@
   width: 100%;
   height: auto;
   background-color: #efefef; /* Fondo amarillo pastel tirando a rosa claro */
-  border: 1px solid #d147a3; /* Borde rosado oscuro */
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(209, 71, 163, 0.3); /* Sombra rosada */
@@ -60,6 +59,7 @@ ul{
   font-size: 1rem;
   margin: 0;
   padding: 1vh 5%;
+  color: #cd44a1; /* Rosado oscuro */
 }
 
 .decorative-gif{

@@ -8,6 +8,7 @@
 
 .frecuency-modal-main{
   height: 80%;
+  color: #222;
 }
 .header-modal-frecuency{
   display: flex;
@@ -45,6 +46,11 @@
   border-bottom: 1px solid #ccc;
 }
 
+.modal-frecuency-title{
+  margin: 0;
+  color: #333; 
+}
+
 .frecuency-modal-section>p {
   font-size: 14px;
 }
@@ -59,8 +65,8 @@
   text-align: center;
   padding: 10px 8px;
   font-size: 16px;
-  border: 1px solid #d147a3;
-  color: #d147a3;
+  border: 1px solid #c67cae;
+  color: #c67cae;
   border-radius: 4px;
   width: 45px;
 }
@@ -73,21 +79,10 @@
 
 .frecuency-select {
   padding: 10px;
-
   font-size: 16px;
-  border: 1px solid #5c6468;
-
-  border-radius: 4px;
+  border: 1.5px solid #c67cae;
+  color: #c67cae;
 }
-
-.frecuency-select {
-  padding: 10px;
-  font-size: 16px;
-  border: 1.5px solid #d147a3;
-  color: #d147a3;
-  
-}
-
 
 .weekDay-input {
   appearance: none;
@@ -101,28 +96,6 @@
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Estado cuando está marcado */
-.weekDay-input:checked {
-  background-color: #4CAF50;
-  border-color: #4CAF50;
-}
-
-/* Agregar un icono al checkbox marcado */
-.weekDay-input:checked::after {
-  content: '✔';
-  color: white;
-  font-size: 16px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Cambiar el color al pasar el ratón */
-.weekDay-input:hover {
-  border-color: #888;
 }
 
 .end-option{

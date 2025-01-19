@@ -1,31 +1,31 @@
 .custom-date-picker {
-  border: 1.5px solid #d147a3;
+  border: 1.5px solid #c67cae;
   border-radius: 4px;
   padding: 8px;
   font-size: 16px;
-  color: #d147a3;
+  color: #c67cae;
   width: 110px;
   text-align: center;
   z-index: 999999999999;
 }
 
 .custom-date-picker:focus {
-    border-color: #d147a3;
+    border-color: #c67cae;
     outline: none;
 }
 
 .custom-calendar {
     background-color: #ffe4e1;
-    border: 1px solid #d147a3;
+    border: 1px solid #c67cae;
     z-index: 999999999999;
 }
 
 .custom-calendar .react-datepicker__day--selected {
-    background-color: #d147a3;
+    background-color: #c67cae;
     color: white;
 }
 
 .custom-calendar .react-datepicker__day--keyboard-selected {
-    background-color: #d147a3;
+    background-color: #c67cae;
     color: white;
 }
