@@ -24,9 +24,8 @@
   width: 80%;
   height: 400px;
   max-width: 400px;
-  border: 2px solid #c67cae;
-  
 }
+
 .date-modal-section{
   display: flex;
   flex-direction: column;
@@ -34,8 +33,7 @@
 }
 
 .modal-arrow{
-  color: #d147a3;
-  
+  color: #d147a3; 
 }
 
 
