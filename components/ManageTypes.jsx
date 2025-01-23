@@ -19,13 +19,14 @@ function ManageTypes({ types, setTypes, toogleAddingType, toogleDeletingType }) 
           <FaPlus />
           <span className='add-span'>Agregar tipo</span>
         </button>
+        <div className='separator'></div>
         <button
           className='delete-type-button type-button'
+          onClick={toogleDeletingType}
         >
           <MdDelete />
           <span
             className='add-span'
-            onClick={toogleDeletingType}
           >
             Eliminar tipo
           </span>

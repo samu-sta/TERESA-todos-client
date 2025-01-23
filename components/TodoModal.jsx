@@ -7,8 +7,8 @@ import DateModal from './DateModal.jsx'
 
 
 function TodoModal({ onToggleVisible, isVisible, setTodos, isNewTodo, todo,
-  currentType, startDate, currentFrecuency, setCurrentDate, setCurrentFrecuency, setCurrentType
-}) {
+  currentType, startDate, currentFrecuency, setCurrentDate, setCurrentFrecuency, setCurrentType,
+  types, setTypes}) {
 
 
 
@@ -17,11 +17,7 @@ function TodoModal({ onToggleVisible, isVisible, setTodos, isNewTodo, todo,
   const inputNameRef = useRef(null);
 
 
-  const [types, setTypes] = useState(() => {
-    // Cargar los types desde localStorage si están disponibles
-    const savedTypes = localStorage.getItem('types');
-    return savedTypes ? JSON.parse(savedTypes) : [];
-  });
+  
 
     
 
@@ -52,9 +48,7 @@ function TodoModal({ onToggleVisible, isVisible, setTodos, isNewTodo, todo,
     }
   }, [isVisible]);
 
-  useEffect(() => {
-    localStorage.setItem('types', JSON.stringify(types));
-  }, [types]);
+  
 
   const toggleModalType = () => {
     setTypeModalVisible(!typeModalVisible);

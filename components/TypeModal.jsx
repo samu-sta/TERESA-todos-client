@@ -53,15 +53,16 @@ function TypeModal({ onToggleVisible, isVisible, setCurrentType, types, setTypes
         }}
       >
         <article className='type-modal notebook'>
+          <header className='type-title'>
+            <ManageTypes
+              types={types}
+              setTypes={setTypes}
+              toogleAddingType={toogleAddingType}
+              toogleDeletingType={toogleDeletingType}
+            />
+          </header>
           <ul className='type-list'>
-            <li className='type-title'>
-              <ManageTypes
-                types={types}
-                setTypes={setTypes}
-                toogleAddingType={toogleAddingType}
-                toogleDeletingType={toogleDeletingType}
-              />
-            </li>
+
             {addingType &&
               (
                 <li className='type-item add-type-item'
@@ -115,6 +116,18 @@ function TypeModal({ onToggleVisible, isVisible, setCurrentType, types, setTypes
               )
             })}
           </ul>
+          <footer className='type-footer'>
+            <button
+              className='cancel-type'
+              onClick={() => {
+                handleToggleVisible();
+                closeModal()
+                setCurrentType('');
+              }}
+            >
+              cancelar
+            </button>
+          </footer>
         </article>
       </div>
     </>

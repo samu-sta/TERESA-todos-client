@@ -5,7 +5,7 @@ import AddTodo from '../components/AddTodo.jsx'
 import CustomDatePicker from '../components/CustomDatePicker.jsx'
 import { isDateTodo, returnWeekDay, returnMonth, wouldBeDeleted, isCompletedInDate} from '../utils/Todos.js'
 
-function Home({todos, setTodos}) {
+function Home({todos, setTodos, types, setTypes}) {
 
   
 
@@ -52,11 +52,19 @@ function Home({todos, setTodos}) {
                     expanded={expandedTodo === todo.id}
                     onToggleExpanded={() => toggleExpanded(todo.id)}
                     setTodos={setTodos}
+                    types={types}
+                    setTypes={setTypes}
                   />
                 </li>
               ))}
             
-            <AddTodo setTodos={setTodos} date={date} setDate={setDate}/>
+            <AddTodo 
+              setTodos={setTodos} 
+              date={date} 
+              setDate={setDate}
+              types={types}
+              setTypes={setTypes}
+            />
           </ul>
         </section>
 

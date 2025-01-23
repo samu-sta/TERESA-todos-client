@@ -4,7 +4,7 @@ import './styles/AddTodo.css'
 
 import TodoModal from './TodoModal.jsx'
 
-function AddTodo({setTodos, date}) {
+function AddTodo({setTodos, date, types, setTypes}) {
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -45,6 +45,8 @@ function AddTodo({setTodos, date}) {
         setCurrentDate={setCurrentDate}
         setCurrentFrecuency={setCurrentFrecuency}
         setCurrentType={setCurrentType}
+        types={types}
+        setTypes={setTypes}
 
         />
 

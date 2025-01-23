@@ -18,11 +18,21 @@ function App() {
         return savedTodos ? JSON.parse(savedTodos) : [];
       });
 
+    const [types, setTypes] = useState(() => {
+    // Cargar los types desde localStorage si están disponibles
+    const savedTypes = localStorage.getItem('types');
+    return savedTypes ? JSON.parse(savedTypes) : [];
+    });
+
     useEffect(() => {
         // Save todos to localStorage whenever they change
         localStorage.setItem('todos', JSON.stringify(todos));
       }
       , [todos]);
+    
+      useEffect(() => {
+        localStorage.setItem('types', JSON.stringify(types));
+      }, [types]);
 
     
     
@@ -36,9 +46,9 @@ function App() {
                         <h1 className='today-title'>TERESA'S todos</h1>
                         <p className='floating-flower'>🌸</p>
                     </header>
-                    {active === 'Diarias' && <Home todos={todos} setTodos={setTodos} />}
+                    {active === 'Diarias' && <Home todos={todos} setTodos={setTodos} types={types} setTypes={setTypes} />}
                     {active === 'Calendario' && <About />}
-                    {active === 'Buscar' && <SearchTodos todos={todos} setTodos={setTodos} />}
+                    {active === 'Buscar' && <SearchTodos todos={todos} setTodos={setTodos} types={types} setTypes={setTypes} />}
                 </section>
                 <NavBar setActive={setActive} active={active} />
         </main>
