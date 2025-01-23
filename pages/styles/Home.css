@@ -8,14 +8,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 1vh;
+  gap: 10px;
   align-items: center;
-  height: 100vh;
   width: 100%;
   padding: 20px;
-  background-color: #ffe4e1;
-  overflow: auto;
-  white-space: nowrap;
+  animation: fadeIn 1s ease-in-out; /* Aplicar la animación */
 }
 
 
@@ -32,13 +29,10 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: auto;
   background-color: #efefef; /* Fondo amarillo pastel tirando a rosa claro */
   border-radius: 5px;
-  padding: 10px;
   box-shadow: 0 2px 4px rgba(209, 71, 163, 0.3); /* Sombra rosada */
   position: relative;
-  animation: fadeIn 1s ease-in-out; /* Aplicar la animación */
 }
 
 
@@ -82,7 +76,6 @@ ul{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    animation: shrinkFadeIn 2s forwards; /* Apply the animation */
     border: 2px solid #d147a3; /* Borde rosado oscuro */
     border-radius: 10px;
   }
