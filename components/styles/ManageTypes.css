@@ -22,7 +22,7 @@
     border-bottom: 1px solid #ccc;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    gap: 15px;
     box-sizing: border-box;
     font-size: 12px;
 }
-

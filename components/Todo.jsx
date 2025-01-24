@@ -4,7 +4,7 @@ import TodoModal from './TodoModal.jsx'
 import { isTodoAllCompleted } from '../utils/Todos.js'
 
 
-function Todo({ id, todo, setTodos, frecuency, actualDate }) {
+function Todo({ id, todo, setTodos, frecuency, actualDate, types, setTypes }) {
   const [completed, setCompleted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
@@ -24,7 +24,7 @@ function Todo({ id, todo, setTodos, frecuency, actualDate }) {
       }
       isTodoAllCompleted(todo) ?
         deleteTodo()
-      :
+        :
         completeFrecuencyTodo();
     }, 300);
   };
@@ -45,76 +45,82 @@ function Todo({ id, todo, setTodos, frecuency, actualDate }) {
     );
   };
 
-const onToggleVisible = () => {
-  setIsVisible(!isVisible)
-}
-
-
-
-useEffect(() => {
-  if (!isVisible) {
-    setCurrentType(todo.type)
+  const onToggleVisible = () => {
+    setIsVisible(!isVisible)
   }
-}, [isVisible]);
+
+
+
+  useEffect(() => {
+    if (!isVisible) {
+      setCurrentType(todo.type)
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    setCurrentType(todo.type)
+  }, [todo.type]);
 
 
 
 
 
-const updateCompletedTodos = (todo) => ({
-  ...todo,
-  completedTodos: [
-    ...todo.completedTodos,
-    {
-      year: actualDate.getFullYear(),
-      month: actualDate.getMonth() + 1,
-      day: actualDate.getDate(),
-    },
-  ],
-});
+  const updateCompletedTodos = (todo) => ({
+    ...todo,
+    completedTodos: [
+      ...todo.completedTodos,
+      {
+        year: actualDate.getFullYear(),
+        month: actualDate.getMonth() + 1,
+        day: actualDate.getDate(),
+      },
+    ],
+  });
 
-return (
-  <>
-    <article
-      className={`todoArticle todo ${fadeOut ? 'fade-out' : ''}`}
-      onClick={onToggleVisible}
-    >
-      <main className='todo-main'>
-        <input
-          type="checkbox"
-          id={id} name={id}
-          value={id}
-          checked={completed}
-          onClick={(e) => e.stopPropagation()}
-          onChange={completeTodo}
-          className='todo-checkbox'
-        />
-        <span className={`${completed ? 'completed' : ''}`} >
-          {todo.text}
-        </span>
-      </main>
-      <footer className={`todo-footer ${completed ? 'completed-footer' : ''}`}>
-        <p>
-          {currentType}
-        </p>
-      </footer>
+  return (
+    <>
+      <article
+        className={`todoArticle todo ${fadeOut ? 'fade-out' : ''}`}
+        onClick={onToggleVisible}
+      >
+        <main className='todo-main'>
+          <input
+            type="checkbox"
+            id={id} name={id}
+            value={id}
+            checked={completed}
+            onClick={(e) => e.stopPropagation()}
+            onChange={completeTodo}
+            className='todo-checkbox'
+          />
+          <span className={`${completed ? 'completed' : ''}`} >
+            {todo.text}
+          </span>
+        </main>
+        <footer className={`todo-footer ${completed ? 'completed-footer' : ''}`}>
+          <p>
+            {currentType}
+          </p>
+        </footer>
 
-    </article>
+      </article>
 
-    <TodoModal
-      onToggleVisible={onToggleVisible}
-      isVisible={isVisible}
-      setTodos={setTodos}
-      todo={todo}
-      currentType={currentType}
-      setCurrentType={setCurrentType}
-      startDate={startDate}
-      setCurrentDate={setCurrentDate}
-      currentFrecuency={currentFrecuency}
-      setCurrentFrecuency={setCurrentFrecuency}
-    />
-  </>
-)
+      <TodoModal
+        onToggleVisible={onToggleVisible}
+        isVisible={isVisible}
+        setTodos={setTodos}
+        todo={todo}
+        currentType={currentType}
+        setCurrentType={setCurrentType}
+        startDate={startDate}
+        setCurrentDate={setCurrentDate}
+        currentFrecuency={currentFrecuency}
+        setCurrentFrecuency={setCurrentFrecuency}
+        types={types}
+        setTypes={setTypes}
+      />
+    </>
+  )
 }
 
 export default Todo
