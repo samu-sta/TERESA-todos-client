@@ -36,6 +36,13 @@
   color: #d147a3; 
 }
 
+.date-modal-main{
+  height: 100%;
+}
+
+.cancel-type-date {
+  font-size: 16px;
+}
 
 .visible>.date-modal {
   opacity: 1;

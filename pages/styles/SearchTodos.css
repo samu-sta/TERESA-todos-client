@@ -28,6 +28,7 @@
 
 .button-search{
     width: 150px;
+    overflow: hidden;
 }
 
 .todos-ul-search{

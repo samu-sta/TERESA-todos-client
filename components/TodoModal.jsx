@@ -163,6 +163,7 @@ function TodoModal({ onToggleVisible, isVisible, setTodos, isNewTodo, todo,
           setDate={setCurrentDate}
           setFrecuency={setCurrentFrecuency}
           currentFrecuency={currentFrecuency}
+          isSearchSection={false}
         />
 
         <article className={`modal ${isVisible ? '' : 'hidden'}`}

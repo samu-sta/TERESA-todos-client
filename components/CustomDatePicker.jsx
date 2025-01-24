@@ -13,7 +13,7 @@ const CustomDatePicker = ({dateSelected, minDate, setDate}) => {
                 className="custom-date-picker notebook"
                 calendarClassName="custom-calendar"
                 dateFormat="dd/MM/yyyy"
-                placeholderText="Select a date"
+                placeholderText=""
                 minDate={minDate}
                 locale={es}
             />

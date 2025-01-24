@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Todo from '../components/Todo.jsx';
 import TypeModal from '../components/TypeModal.jsx';
+import DateModal from '../components/DateModal.jsx';
 import './styles/SearchTodos.css';
 
 const SearchTodos = ({todos, setTodos, types, setTypes}) => {
     const [todoName, setTodoName] = useState('');
     const [filteredTodos, setFilteredTodos] = useState([]);
     const [currentType, setCurrentType] = useState('');
+    const [currentDate, setCurrentDate] = useState(null);
     const [typeModalVisible, setTypeModalVisible] = useState(false);
-
+    const [dateModalVisible, setDateModalVisible] = useState(false);
 
     const [expandedTodo, setExpandedTodo] = useState(null);
     const toggleExpanded = (id) => {
@@ -24,20 +26,31 @@ const SearchTodos = ({todos, setTodos, types, setTypes}) => {
       setTypeModalVisible(!typeModalVisible);
     }
 
+    const toggleModalDate = () => {
+      setDateModalVisible(!dateModalVisible);
+    }
+
 
     useEffect(() => {
-      let filtered = todos.filter((todo) => todo.text.toLowerCase().includes(todoName));
-      
-      if (currentType !== '') {
-        filtered = filtered.filter((todo) => todo.type === currentType);
-      }
-      else if (todoName === '') {
+      if (todoName === '' && currentType === '' && currentDate === null) {
         setFilteredTodos([]);
         return;
       }
+      let filtered = todos.filter((todo) => todo.text.toLowerCase().includes(todoName));
 
+      if (currentType !== '') {
+        filtered = filtered.filter((todo) => todo.type === currentType);
+      }
+
+      if (currentDate !== null) {
+        filtered = filtered.filter((todo) => {
+          const todoDate = new Date(todo.date.year, todo.date.month - 1, todo.date.day);
+          return todoDate.toDateString() === currentDate.toDateString();
+        }
+        );
+      }
       setFilteredTodos(filtered);
-    }, [todoName, todos, currentType]);
+    }, [todoName, todos, currentType, currentDate]);
 
     return (
       <>
@@ -69,9 +82,9 @@ const SearchTodos = ({todos, setTodos, types, setTypes}) => {
                 onChange={handleInputChange}
             />
             <section className="options-section options-section-search">
-            <button className="notebook button-search"
+            <button className="notebook button-search" onClick={() => setDateModalVisible(true)}
             >
-              Fecha 📅
+              { currentDate === null ? 'Fecha 📅' : currentDate.toLocaleDateString('es-ES') }
             </button>
             <button className="notebook button-search" onClick={() => setTypeModalVisible(true)}>
               { currentType === '' ? 'Tipo 🏷️' : currentType }
@@ -95,6 +108,15 @@ const SearchTodos = ({todos, setTodos, types, setTypes}) => {
               ))}
             </ul>
             </section>
+            <DateModal
+              isVisible={dateModalVisible}
+              onToggleVisible={toggleModalDate}
+              date={currentDate}
+              setDate={setCurrentDate}
+              setFrecuency={() => {}}
+              currentFrecuency={null}
+              isSearchSection={true}
+            />
         </main>
 
         </>

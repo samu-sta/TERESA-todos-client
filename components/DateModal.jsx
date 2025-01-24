@@ -4,7 +4,7 @@ import './styles/DateModal.css';
 import FrecuencyModal from './FrecuencyModal.jsx';
 import { FaArrowLeft } from "react-icons/fa";
 
-const DateModal = ({ isVisible, onToggleVisible, currentFrecuency, setFrecuency, date, setDate }) => {
+const DateModal = ({ isVisible, onToggleVisible, currentFrecuency, setFrecuency, date, setDate, isSearchSection }) => {
 
   const [frecuencyModalVisible, setFrecuencyModalVisible] = useState(false);
 
@@ -34,7 +34,7 @@ const DateModal = ({ isVisible, onToggleVisible, currentFrecuency, setFrecuency,
               className='date-modal-button'
               onClick={handleToggleVisible}
             >
-              <FaArrowLeft className='modal-arrow'/>
+              <FaArrowLeft className='modal-arrow' />
             </button>
             <h3 className='date-modal-title'>Selecciona fecha</h3>
             <button
@@ -44,30 +44,55 @@ const DateModal = ({ isVisible, onToggleVisible, currentFrecuency, setFrecuency,
               Hecho
             </button>
           </header>
-          <section className='date-modal-section'>
-            <label className='start-date-label'>Inicio</label>
-            <CustomDatePicker
-              dateSelected={date}
-              setDate={setDate}
-            />
-          </section>
-          <button className='button notebook'
-            onClick={toggleModalFrecuency}
-          >
-            {currentFrecuency ? 'Se Repite' : 'No se repite'}
-          </button>
+          <main className='date-modal-main'>
+            <section className='date-modal-section'>
+              {isSearchSection ?
+                null
+                :
+                <label className='start-date-label'>Inicio</label>
+              }
+              <CustomDatePicker
+                dateSelected={date}
+                setDate={setDate}
+              />
+            </section>
+            {isSearchSection ?
+              null
+              :
+              <button className='button notebook'
+                onClick={toggleModalFrecuency}
+              >
+                {currentFrecuency ? 'Se Repite' : 'No se repite'}
+              </button>
+            }
+          </main>
+
+          {isSearchSection ?
+            <button className='cancel-type cancel-type-date' onClick={() => {
+              handleToggleVisible()
+              setDate(null)
+            }}
+            >cancelar</button>
+            :
+            null
+          }
 
 
 
         </article>
 
-        <FrecuencyModal
-          toggleModalVisible={toggleModalFrecuency}
-          isVisible={frecuencyModalVisible}
-          setFrecuency={setFrecuency}
-          currentFrecuency={currentFrecuency}
-          startDate={date}
-        />
+        {isSearchSection ?
+          null
+          :
+          <FrecuencyModal
+            toggleModalVisible={toggleModalFrecuency}
+            isVisible={frecuencyModalVisible}
+            setFrecuency={setFrecuency}
+            currentFrecuency={currentFrecuency}
+            startDate={date}
+          />
+        }
+
 
       </div>
     </>
