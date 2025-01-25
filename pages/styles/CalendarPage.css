@@ -8,43 +8,66 @@
 
 .calendar-header {
     display: flex;
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 1;
+    flex-direction: column;
+}
+
+.calendar-days-of-week{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
     border-bottom: 1px solid #ccc;
 }
 
 .calendar-content {
     display: flex;
     flex: 1;
-    overflow: hidden;
 }
 
 .hour-labels {
     display: flex;
     flex-direction: column;
     width: 60px;
-    border-right: 1px solid #ccc;
+    background-color: #f9f9f9;
 }
+
+.calendar-week-date {
+    z-index: 15;
+    background-color: #ffe4e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 50px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.calendar-hour-label {
+    min-width: 60px;
+    flex: 0 0 60px;
+}
+
 
 .hour-label {
     height: 60px;
     display: flex;
-    align-items: center;
+    padding: 50px 0 0 0;
     justify-content: center;
-    border-bottom: 1px solid #eee;
+    border-right: 1px solid #ccc;
+
 }
 
 .calendar-scroll {
     flex: 1;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .calendar-weeks {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 300%;
+    transform: translateX(-33.33%);
 }
 
 .calendar-week {
@@ -52,40 +75,75 @@
     width: 100%;
 }
 
+.calendar-weeks,
+.calendar-week {
+    /* Quitar cualquier overflow / position */
+    overflow: visible !important;
+    position: static !important;
+}
+
 .calendar-day-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #ccc;
+    width: 100%;
+    overflow: visible !important; /* importante */
+    position: static !important;  /* importante */
 }
 
 .calendar-day {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-}
-
-.calendar-date {
-    text-align: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .hour-blocks {
     display: flex;
     flex-direction: column;
+    position: relative;
+    background-color: #f9f9f9;
 }
 
 .hour-block {
     height: 60px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.calendar-event {
+    position: absolute;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    overflow: hidden;
+    font-size: 14px;
 }
 
 .calendar-month {
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2rem;
+    padding: 0 10px 5px 10px;
     font-weight: bold;
-    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    color: #d147a3; 
+    display: flex;
+    align-items: center;
+}
+
+
+
+.hour-labels {
+    position: sticky;
+    left: 0;
+    z-index: 10;
+    background-color: #f9f9f9;
+}
+
+.calendar-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.hour-blocks {
+    overflow-y: auto;
+    padding-top: 80px; /* Height of calendar-date */
+    margin-top: -80px; /* Offset padding to align content */
 }

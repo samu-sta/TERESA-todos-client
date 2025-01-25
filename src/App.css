@@ -31,6 +31,7 @@
     color: #fff; /* Rosado oscuro */
     font-size: 2em;
     text-shadow: 2px 2px #ffb6c1; /* Sombra de texto rosada */
+    margin: 0;
   }
   
   .app-section{

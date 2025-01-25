@@ -1,13 +1,27 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDrag } from '../src/hooks/useDrag.jsx';
 import  {useWeeks} from '../src/hooks/useWeeks.jsx';
+import { MdOutlineArrowDropDown } from "react-icons/md";
+
 import './styles/CalendarPage.css';
 
 const daysOfWeek = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
 const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
+
+
 const CalendarPage = () => {
     const calendarWeeksRef = useRef(null);
+
+
+    const events = {
+        '2024-03-21': [
+            { title: 'Meeting', startHour: 10, duration: 1.5 },
+            { title: 'Lunch', startHour: 13, duration: 1 }
+        ]
+    };
+
+    
     
 
     const {
@@ -27,22 +41,20 @@ const CalendarPage = () => {
 
     return (
     <main className="calendar-container">
-        <header>
+        <header className="calendar-header">
             <section className="calendar-month">
-                {months[currentDate.getMonth()]} {currentDate.getFullYear()}
+                {months[currentDate.getMonth()]}
+                <MdOutlineArrowDropDown className='calendar-month-icon'/>
             </section>
-            <section className="calendar-header">
-                {daysOfWeek.map((day, index) => (
-                    <div key={index} className="calendar-day">{day}</div>
-                ))}
-            </section>
+            
         </header>
         
         <main className="calendar-content">
             <aside className="hour-labels">
-                {Array.from({ length: 24 }, (_, i) => (
-                    <section key={i} className="hour-label">
-                        {`${i}:00`}
+                    <section className='calendar-week-date'/>
+                {Array.from({ length: 23 }, (_, i) => (
+                    <section key={i + 1} className="hour-label">
+                        {`${i + 1}:00`}
                     </section>
                 ))}
             </aside>
@@ -58,7 +70,10 @@ const CalendarPage = () => {
                     <section className="calendar-week previous-week">
                         {previousWeek.map((date, index) => (
                             <div key={index} className="calendar-day-container">
-                                <div className="calendar-date">{date.getDate()}</div>
+                                <header className="calendar-week-date">
+                                    <span className="day-letter">{daysOfWeek[index]}</span>
+                                    <span className="date-number">{date.getDate()}</span>
+                                </header>
                                 <div className="hour-blocks">
                                     {Array.from({ length: 24 }, (_, i) => (
                                         <div key={i} className="hour-block"></div>
@@ -70,19 +85,25 @@ const CalendarPage = () => {
                     <section className="calendar-week current-week">
                         {currentWeek.map((date, index) => (
                             <div key={index} className="calendar-day-container">
-                                <div className="calendar-date">{date.getDate()}</div>
-                                <div className="hour-blocks">
-                                    {Array.from({ length: 24 }, (_, i) => (
-                                        <div key={i} className="hour-block"></div>
-                                    ))}
-                                </div>
+                            <header className="calendar-week-date">
+                                <span className="day-letter">{daysOfWeek[index]}</span>
+                                <span className="date-number">{date.getDate()}</span>
+                            </header>
+                            <div className="hour-blocks">
+                                {Array.from({ length: 24 }, (_, i) => (
+                                    <div key={i} className="hour-block"></div>
+                                ))}
                             </div>
+                        </div>
                         ))}
                     </section>
                     <section className="calendar-week next-week">
                         {nextWeek.map((date, index) => (
                             <div key={index} className="calendar-day-container">
-                                <div className="calendar-date">{date.getDate()}</div>
+                                <header className="calendar-week-date">
+                                    <span className="day-letter">{daysOfWeek[index]}</span>
+                                    <span className="date-number">{date.getDate()}</span>
+                                </header>
                                 <div className="hour-blocks">
                                     {Array.from({ length: 24 }, (_, i) => (
                                         <div key={i} className="hour-block"></div>
