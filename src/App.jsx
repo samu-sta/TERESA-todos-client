@@ -5,8 +5,7 @@ import NavBar from '../components/Navbar.jsx';
 import './App.css';
 import SearchTodos from '../pages/SearchTodos.jsx';
 import { useEffect } from 'react';
-import { wouldBeDeleted } from '../utils/Todos.js';
-
+import CalendarPage from '../pages/CalendarPage.jsx';
 function About() {
     return <h1>About</h1>;
 }
@@ -47,7 +46,7 @@ function App() {
                         <p className='floating-flower'>🌸</p>
                     </header>
                     {active === 'Diarias' && <Home todos={todos} setTodos={setTodos} types={types} setTypes={setTypes} />}
-                    {active === 'Calendario' && <About />}
+                    {active === 'Calendario' && <CalendarPage />}
                     {active === 'Buscar' && <SearchTodos todos={todos} setTodos={setTodos} types={types} setTypes={setTypes} />}
                 </section>
                 <NavBar setActive={setActive} active={active} />

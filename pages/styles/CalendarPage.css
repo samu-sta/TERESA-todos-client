@@ -1,0 +1,91 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    user-select: none;
+}
+
+.calendar-header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.calendar-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.hour-labels {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    border-right: 1px solid #ccc;
+}
+
+.hour-label {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+}
+
+.calendar-scroll {
+    flex: 1;
+    overflow: hidden;
+}
+
+.calendar-weeks {
+    display: flex;
+    justify-content: space-between;
+    width: 300%;
+}
+
+.calendar-week {
+    display: flex;
+    width: 100%;
+}
+
+.calendar-day-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+}
+
+.calendar-day {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.calendar-date {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.hour-blocks {
+    display: flex;
+    flex-direction: column;
+}
+
+.hour-block {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+}
+
+.calendar-month {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
