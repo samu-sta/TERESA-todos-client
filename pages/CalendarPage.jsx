@@ -14,11 +14,58 @@ const CalendarPage = () => {
     const calendarWeeksRef = useRef(null);
 
 
-    const events = {
-        '2024-03-21': [
-            { title: 'Meeting', startHour: 10, duration: 1.5 },
-            { title: 'Lunch', startHour: 13, duration: 1 }
-        ]
+    const events = [
+        {
+            id: 1,
+            title: 'Meeting with John',
+            date: new Date(2025, 0, 26, 16, 0),
+            duration: 60,
+        },
+        {
+            id: 2,
+            title: 'Lunch with Sara',
+            date: new Date(2025, 0, 26, 14, 0),
+            duration: 60,
+        },
+        {
+            id: 3,
+            title: 'Lunch with SUUUUU',
+            date: new Date(2025, 0, 24, 10, 0),
+            duration: 120,
+        }
+
+    ]
+
+    const renderEvents = (date) => {
+        return events.filter(event => 
+            event.date.getDate() === date.getDate() &&
+            event.date.getMonth() === date.getMonth() &&
+            event.date.getFullYear() === date.getFullYear()
+        ).map(event => {
+            const startHour = event.date.getHours();
+            const top = startHour * 37; // 37px per hour block
+            const height = (event.duration / 60) * 37; // Convert duration to pixels
+
+            return (
+                <div
+                    key={event.id}
+                    className="calendar-event"
+                    style={{
+                        top: `${top}px`,
+                        height: `${height}px`
+                    }}
+                >
+                    {event.title}
+                </div>
+            );
+        });
+    };
+
+    const isToday = (date) => {
+        const today = new Date();
+        return date.getDate() === today.getDate() &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear();
     };
 
     
@@ -53,7 +100,7 @@ const CalendarPage = () => {
             <aside className="hour-labels">
                     <section className='calendar-week-date'/>
                 {Array.from({ length: 23 }, (_, i) => (
-                    <section key={i + 1} className="hour-label">
+                    <section key={i + 1} className={`hour-label ${i === 0 ? 'first-hour-label' : ''}`}>
                         {`${i + 1}:00`}
                     </section>
                 ))}
@@ -70,7 +117,7 @@ const CalendarPage = () => {
                     <section className="calendar-week previous-week">
                         {previousWeek.map((date, index) => (
                             <div key={index} className="calendar-day-container">
-                                <header className="calendar-week-date">
+                                <header className={`calendar-week-date ${isToday(date) ? 'today' : ''}`}>
                                     <span className="day-letter">{daysOfWeek[index]}</span>
                                     <span className="date-number">{date.getDate()}</span>
                                 </header>
@@ -78,6 +125,8 @@ const CalendarPage = () => {
                                     {Array.from({ length: 24 }, (_, i) => (
                                         <div key={i} className="hour-block"></div>
                                     ))}
+                                    {renderEvents(date)}
+                                    
                                 </div>
                             </div>
                         ))}
@@ -85,7 +134,7 @@ const CalendarPage = () => {
                     <section className="calendar-week current-week">
                         {currentWeek.map((date, index) => (
                             <div key={index} className="calendar-day-container">
-                            <header className="calendar-week-date">
+                            <header className={`calendar-week-date ${isToday(date) ? 'today' : ''}`}>
                                 <span className="day-letter">{daysOfWeek[index]}</span>
                                 <span className="date-number">{date.getDate()}</span>
                             </header>
@@ -93,6 +142,7 @@ const CalendarPage = () => {
                                 {Array.from({ length: 24 }, (_, i) => (
                                     <div key={i} className="hour-block"></div>
                                 ))}
+                                {renderEvents(date)}
                             </div>
                         </div>
                         ))}
@@ -100,7 +150,7 @@ const CalendarPage = () => {
                     <section className="calendar-week next-week">
                         {nextWeek.map((date, index) => (
                             <div key={index} className="calendar-day-container">
-                                <header className="calendar-week-date">
+                                <header className={`calendar-week-date ${isToday(date) ? 'today' : ''}`}>
                                     <span className="day-letter">{daysOfWeek[index]}</span>
                                     <span className="date-number">{date.getDate()}</span>
                                 </header>
@@ -108,6 +158,7 @@ const CalendarPage = () => {
                                     {Array.from({ length: 24 }, (_, i) => (
                                         <div key={i} className="hour-block"></div>
                                     ))}
+                                    {renderEvents(date)}
                                 </div>
                             </div>
                         ))}
