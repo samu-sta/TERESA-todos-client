@@ -4,11 +4,17 @@ export const useWeeks = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
 
     const getWeek = (date) => {
-        const startOfWeek = new Date(date.setDate(date.getDate() - date.getDay() + 1));
+        const currentDay = date.getDay();
+        // Adjust to make Monday (1) the first day
+        const diff = currentDay === 0 ? -6 : 1 - currentDay; 
+        
+        const monday = new Date(date);
+        monday.setDate(date.getDate() + diff);
+
         return Array.from({ length: 7 }, (_, i) => {
-            const newDate = new Date(startOfWeek);
-            newDate.setDate(startOfWeek.getDate() + i);
-            return newDate;
+            const day = new Date(monday);
+            day.setDate(monday.getDate() + i);
+            return day;
         });
     };
 

@@ -37,9 +37,24 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    min-height: 50px;
-    border-bottom: 1px solid #ccc;
+    min-height: 55px;
     width: 100%;
+    color: #555;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #d147a3;
+}
+
+.calendar-week-date .day-letter {
+    font-size: 10px;
+    padding: 2px;
+    color: #555;
+}
+
+.calendar-week-date .date-number {
+    font-size: 16px;
+    padding: 7.5px;
+    border-radius: 9999999px;
+    color: #555;
 }
 
 .calendar-hour-label {
@@ -49,12 +64,32 @@
 
 
 .hour-label {
-    height: 60px;
     display: flex;
-    padding: 50px 0 0 0;
-    justify-content: center;
-    border-right: 1px solid #ccc;
+    height: 37px;
+    padding: 24px 0 0 0;
 
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ccc;
+    color: #444;
+
+}
+
+.first-hour-label{
+    height: 43px;
+    padding: 31px 0 0 0;
+}
+
+
+.hour-label::after {
+    content: '';
+    position: absolute;
+    right: 1px;
+    width: 8px;
+    height: 0.5px;
+    background-color: #aaa;
+    transform: translateY(-50%);
 }
 
 .calendar-scroll {
@@ -75,20 +110,10 @@
     width: 100%;
 }
 
-.calendar-weeks,
-.calendar-week {
-    /* Quitar cualquier overflow / position */
-    overflow: visible !important;
-    position: static !important;
-}
-
 .calendar-day-container {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #ccc;
     width: 100%;
-    overflow: visible !important; /* importante */
-    position: static !important;  /* importante */
 }
 
 .calendar-day {
@@ -106,9 +131,11 @@
 }
 
 .hour-block {
-    height: 60px;
+    height: 37px;
     border-bottom: 1px solid #ccc;
     position: relative;
+    border-right: 1px solid #ccc;
+
 }
 
 .calendar-event {
@@ -147,3 +174,34 @@
     padding-top: 80px; /* Height of calendar-date */
     margin-top: -80px; /* Offset padding to align content */
 }
+
+
+.calendar-week-date.today .date-number{
+    background-color: #cb6aac;
+    color: white;
+}
+
+.calendar-week-date.today .day-letter{
+    color: #cb6aac;
+}
+
+
+.calendar-event {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    background-color: #d147a3;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 10px;
+    overflow: hidden;
+    z-index: 5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
