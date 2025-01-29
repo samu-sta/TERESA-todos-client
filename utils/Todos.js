@@ -7,6 +7,13 @@ Date.prototype.getWeek = function() {
 
 export const isDateTodo = (todo, date) => {
   
+  if (todo.date.frecuency?.end) {
+    
+    if (date.getFullYear() > todo.date.frecuency.end.year || date.getMonth() > todo.date.frecuency.end.month - 1 || date.getDate() > todo.date.frecuency.end.day){
+      return false
+    }
+  }
+  
   if (todo.date.frecuency) {
     return isSameTime(todo, date)
   }

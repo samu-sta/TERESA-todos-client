@@ -4,6 +4,7 @@ import { useWeeks } from '../src/hooks/useWeeks.jsx';
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import AddEventModal from '../components/AddEventModal.jsx';
+import { isDateTodo } from '../utils/Todos.js';
 
 import './styles/CalendarPage.css';
 
@@ -13,42 +14,54 @@ const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 
 
 
 
+
 const CalendarPage = ({ events, setEvents }) => {
   const calendarWeeksRef = useRef(null);
 
-  const [modalVisibility, setModalVisibility] = useState(false);
+  const [addModalVisibility, setAddModalVisibility] = useState(false);
 
-  const toggleModalVisibility = () => {
-    setModalVisibility(!modalVisibility);
+  const toggleAddModalVisibility = () => {
+    setAddModalVisibility(!addModalVisibility);
   }
+
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const toggleModalVisibility = (event = null) => {
+    setSelectedEvent(event);
+    setModalVisibility(!modalVisibility);
+  };
+
 
 
   const renderEvents = (date) => {
-    return events.filter(event =>
-      event.date.getDate() === date.getDate() &&
-      event.date.getMonth() === date.getMonth() &&
-      event.date.getFullYear() === date.getFullYear()
-    ).map(event => {
-      const startHour = event.date.getHours();
-      const hourHeight = 37;
-      const top = 79.5 + startHour * hourHeight;
-      const height = (event.duration / 60) * hourHeight;
+    return events.filter(event => {
+        // Create date object from event date
+        
+        return isDateTodo(event, date);
+    }).map(event => {
+      const startMinute = event.date.minute;
+      const startHour = event.date.hour + startMinute / 60;
+        const hourHeight = 37;
+        const top = 79.5 + startHour * hourHeight;
+        const height = (event.duration / 60) * hourHeight;
 
-      return (
-        <div
-          key={event.id}
-          className="calendar-event"
-          style={{
-            top: `${top}px`,
-            height: `${height}px`,
-            background: event.color
-          }}
-        >
-          {event.title}
-        </div>
-      );
+        return (
+            <div
+                key={event.id}
+                className="calendar-event"
+                style={{
+                    top: `${top}px`,
+                    height: `${height}px`,
+                    background: event.color
+                }}
+                onClick={() => toggleModalVisibility(event)}
+            >
+                {event.title}
+            </div>
+        );
     });
-  };
+};
 
   const isToday = (date) => {
     const today = new Date();
@@ -158,12 +171,21 @@ const CalendarPage = ({ events, setEvents }) => {
         </main>
 
         <button className='add-event-button'
-          onClick={toggleModalVisibility}
+          onClick={toggleAddModalVisibility}
         ><IoMdAdd /></button>
       </main>
-      {modalVisibility &&
-      <AddEventModal toggleModalVisibility={toggleModalVisibility} events={events} setEvents={setEvents} />
+      {addModalVisibility &&
+      <AddEventModal toggleModalVisibility={toggleAddModalVisibility} events={events} setEvents={setEvents} isAddingEvent={true} />
       }
+      {modalVisibility && (
+        <AddEventModal 
+          toggleModalVisibility={() => toggleModalVisibility(null)}
+          events={events} 
+          setEvents={setEvents}
+          isAddingEvent={!selectedEvent}
+          event={selectedEvent}
+        />
+      )}
     </>
   );
 };

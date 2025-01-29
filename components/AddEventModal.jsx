@@ -7,25 +7,30 @@ import CustomDatePicker from './CustomDatePicker.jsx';
 import FrecuencyModal from './FrecuencyModal.jsx';
 
 
-function AddEventModal({toggleModalVisibility, events, setEvents}) {
+function AddEventModal({toggleModalVisibility, events, setEvents, isAddingEvent, event}) {
     
 
-    const [selectedColor, setSelectedColor] = useState('#ff69b4');
+    const [selectedColor, setSelectedColor] = useState(! isAddingEvent ? event.color : '#d14747');
     const [showColorModal, setShowColorModal] = useState(false);
     const [frecuencyModalVisible, setFrecuencyModalVisible] = useState(false);
-    const [currentFrecuency, setFrecuency] = useState('none');
-    const [eventDate, setEventDate] = useState(new Date());
-    const [eventTitle, setEventTitle] = useState('');
-    console.log(events);
+    const [currentFrecuency, setFrecuency] = useState(! isAddingEvent ? event.date.frecuency : null);
+    const [eventDate, setEventDate] = useState(! isAddingEvent ? new Date(event.date.year, event.date.month - 1, event.date.day) : new Date());
+    const [eventTitle, setEventTitle] = useState(! isAddingEvent ? event.title : '');
     const addEvent = () => {
         const id = events.length > 0 ? Math.max(...events.map(event => event.id)) + 1 : 1;
         const newEvent = {
             id,
             title: eventTitle,
-            date: new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate(), parseInt(startTime.split(':')[0]), parseInt(startTime.split(':')[1])),
+            date: {
+                year: eventDate.getFullYear(),
+                month: eventDate.getMonth() + 1,
+                day: eventDate.getDate(),
+                hour: parseInt(startTime.split(':')[0]),
+                minute: parseInt(startTime.split(':')[1]),
+                frecuency: currentFrecuency
+            },
             duration: (parseInt(endTime.split(':')[0]) - parseInt(startTime.split(':')[0])) * 60 + parseInt(endTime.split(':')[1]) - parseInt(startTime.split(':')[1]),
             color: selectedColor,
-            frecuency: currentFrecuency
         };
         setEvents([...events, newEvent]);
         toggleModalVisibility();
@@ -39,6 +44,30 @@ function AddEventModal({toggleModalVisibility, events, setEvents}) {
 
     const onTitleChange = (e) => {
         setEventTitle(e.target.value);
+    };
+
+    const deleteEvent = () => {
+        setEvents(events.filter(e => e.id !== event.id));
+        toggleModalVisibility();
+    };
+
+    const updateEvent = () => {
+        const updatedEvent = {
+            id: event.id,
+            title: eventTitle,
+            date: {
+                year: eventDate.getFullYear(),
+                month: eventDate.getMonth() + 1,
+                day: eventDate.getDate(),
+                hour: parseInt(startTime.split(':')[0]),
+                minute: parseInt(startTime.split(':')[1]),
+                frecuency: currentFrecuency
+            },
+            duration: (parseInt(endTime.split(':')[0]) - parseInt(startTime.split(':')[0])) * 60 + parseInt(endTime.split(':')[1]) - parseInt(startTime.split(':')[1]), 
+            color: selectedColor,
+        };
+        setEvents(events.map(e => e.id === event.id ? updatedEvent : e));
+        toggleModalVisibility();
     };
     
 
@@ -86,7 +115,7 @@ function AddEventModal({toggleModalVisibility, events, setEvents}) {
                 ><IoMdClose /></button>
                 <button 
                     className='button-save-event-modal'
-                    onClick={addEvent}
+                    onClick={isAddingEvent ? addEvent : updateEvent}
                 >Guardar</button>
             </header>
             <section className='section-title-event-modal'>
@@ -156,6 +185,16 @@ function AddEventModal({toggleModalVisibility, events, setEvents}) {
             currentFrecuency={currentFrecuency}
             startDate={eventDate}
           />
+          {! isAddingEvent && (
+          <section className='section-delete-event-modal'>
+            <button
+                className="button-delete-event"
+                onClick={deleteEvent}
+            >
+                Eliminar
+            </button>
+          </section>
+            )}
        </article>
     );
 }

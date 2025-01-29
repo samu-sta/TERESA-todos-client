@@ -145,3 +145,22 @@
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(300deg) brightness(80%) contrast(119%);
     cursor: pointer;
 }
+
+.button-delete-event {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #d23636;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 25px;
+}
+
+.section-delete-event-modal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end ;
+    padding: 20px;
+    height: 100%;
+    border-top: 1px solid #d147a33f;
+}

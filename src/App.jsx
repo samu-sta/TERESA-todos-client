@@ -16,6 +16,7 @@ function App() {
         const savedTodos = localStorage.getItem('todos');
         return savedTodos ? JSON.parse(savedTodos) : [];
       });
+      console.log(todos);
 
     const [types, setTypes] = useState(() => {
     // Cargar los types desde localStorage si están disponibles

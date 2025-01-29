@@ -3,7 +3,7 @@ import './styles/ColorSelectorModal.css';
 
 function ColorSelectorModal({ colors, selectedColor, onColorSelect, onClose }) {
     return (
-        <div className="color-selector-modal">
+        <div className="color-selector-modal" onClick={onClose}>
             <div className="color-selector-content">
             {Object.entries(colors).map(([color, name]) => (
                     <button
