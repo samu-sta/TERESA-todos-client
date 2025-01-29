@@ -1,0 +1,166 @@
+.add-event-modal {
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffe4e1;
+    animation: fadeInScale 0.2s ease-in-out;
+    z-index: 1000; /* Add high z-index */
+    display: flex;
+    flex-direction: column;
+}
+
+.header-add-event-modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.button-close-event-modal {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 30px;
+    color: #d147a3;
+}
+
+.button-save-event-modal{
+    background-color: #d147a3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+.section-title-event-modal {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d147a33f;
+}
+
+.input-event-title {
+    width: 80%;
+    padding: 10px;
+    border-bottom: 1px solid #d147a3;
+    margin: 20px 0;
+    font-size: 20px;
+    color: #d147a3;
+    font-weight: 800;
+    
+}
+
+.input-event-title::placeholder {
+    color: #d147a348;
+}
+
+.input-event-title:focus {
+    outline: none;
+}
+
+.section-color-event-modal {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.color-option {
+    padding: 6px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.button-color-event{
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 30px;
+    font-size: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    color: #333;
+    border-bottom: 1px solid #d147a33f;
+}
+
+.section-date-event-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.button-event-frecuency {
+    background-color: transparent;
+
+    border: none;
+    padding: 20px 20px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    color: #d147a3;
+
+    display: flex;
+    gap: 10px;
+}
+
+.section-frecuency-event-modal
+{
+    border-top: 1px solid #d147a33f;
+}
+
+.time-input {
+    padding: 10px;
+    border: 1px solid ;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 15px;
+    color:#c67cae;
+
+}
+
+.time-container{
+    display: flex;
+    gap: 20px;
+}
+
+.time-input:hover {
+    border-color: #e47ab6;
+}
+
+.time-input::-webkit-calendar-picker-indicator {
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(300deg) brightness(80%) contrast(119%);
+    cursor: pointer;
+}
+
+.button-delete-event {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #d23636;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 25px;
+}
+
+.section-delete-event-modal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end ;
+    padding: 20px;
+    height: 100%;
+    border-top: 1px solid #d147a33f;
+}

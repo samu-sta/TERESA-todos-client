@@ -205,3 +205,17 @@
     line-height: 1.2;
 }
 
+.add-event-button {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+    background-color: #d147a3;
+    color: white;
+    padding: 17.5px;
+    border-radius: 10px;
+    border: none;
+    font-size: 22px;
+}
+

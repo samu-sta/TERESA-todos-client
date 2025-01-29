@@ -16,12 +16,39 @@ function App() {
         const savedTodos = localStorage.getItem('todos');
         return savedTodos ? JSON.parse(savedTodos) : [];
       });
+      console.log(todos);
 
     const [types, setTypes] = useState(() => {
     // Cargar los types desde localStorage si están disponibles
     const savedTypes = localStorage.getItem('types');
     return savedTypes ? JSON.parse(savedTypes) : [];
     });
+
+    const sevents = [
+      {
+          id: 1,
+          title: 'Meeting with John',
+          date: new Date(2025, 0, 26, 16, 0),
+          duration: 60,
+          color: '#FF0000'
+      },
+      {
+          id: 2,
+          title: 'Lunch with Sara',
+          date: new Date(2025, 0, 26, 14, 0),
+          duration: 60,
+          color: '#00FF00'
+      },
+      {
+          id: 3,
+          title: 'Lunch with SUUUUU',
+          date: new Date(2025, 0, 24, 10, 0),
+          duration: 120,
+          color: '#0000FF'
+      }
+
+    ];
+    const [events, setEvents] = useState(sevents);
 
     useEffect(() => {
         // Save todos to localStorage whenever they change
@@ -46,7 +73,7 @@ function App() {
                         <p className='floating-flower'>🌸</p>
                     </header>
                     {active === 'Diarias' && <Home todos={todos} setTodos={setTodos} types={types} setTypes={setTypes} />}
-                    {active === 'Calendario' && <CalendarPage />}
+                    {active === 'Calendario' && <CalendarPage events={events} setEvents={setEvents}/>}
                     {active === 'Buscar' && <SearchTodos todos={todos} setTodos={setTodos} types={types} setTypes={setTypes} />}
                 </section>
                 <NavBar setActive={setActive} active={active} />
