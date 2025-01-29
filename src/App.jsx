@@ -24,41 +24,23 @@ function App() {
     return savedTypes ? JSON.parse(savedTypes) : [];
     });
 
-    const sevents = [
-      {
-          id: 1,
-          title: 'Meeting with John',
-          date: new Date(2025, 0, 26, 16, 0),
-          duration: 60,
-          color: '#FF0000'
-      },
-      {
-          id: 2,
-          title: 'Lunch with Sara',
-          date: new Date(2025, 0, 26, 14, 0),
-          duration: 60,
-          color: '#00FF00'
-      },
-      {
-          id: 3,
-          title: 'Lunch with SUUUUU',
-          date: new Date(2025, 0, 24, 10, 0),
-          duration: 120,
-          color: '#0000FF'
-      }
-
-    ];
-    const [events, setEvents] = useState(sevents);
+    const [events, setEvents] = useState(() => {
+        const savedEvents = localStorage.getItem('events');
+        return savedEvents ? JSON.parse(savedEvents) : [];
+    });
 
     useEffect(() => {
-        // Save todos to localStorage whenever they change
         localStorage.setItem('todos', JSON.stringify(todos));
       }
       , [todos]);
     
-      useEffect(() => {
-        localStorage.setItem('types', JSON.stringify(types));
-      }, [types]);
+    useEffect(() => {
+    localStorage.setItem('types', JSON.stringify(types));
+    }, [types]);
+
+    useEffect(() => {
+        localStorage.setItem('events', JSON.stringify(events));
+    }, [events]);
 
     
     
